@@ -11,15 +11,15 @@ Specjs.
 ## 📦 Install
 
 ```
-$ npm install --save specjs
+$ npm install --save amendjs
 # or
-$ yarn add specjs
+$ yarn add amendjs
 ```
 
 ## 🔨 Usage
 
 ```
-$ npm run spec
+$ npm run amend
 # or
-$ yarn spec
+$ yarn amend
 ```

@@ -1,9 +1,9 @@
 {
-	"name": "specjs",
+	"name": "amendjs",
 	"version": "1.0.0",
 	"description": "",
 	"bin": {
-		"spec": "./packages/core/bin/spec.js"
+		"amend": "./packages/core/bin/spec.js"
 	},
 	"scripts": {},
 	"type": "module",
