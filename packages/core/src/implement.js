@@ -9,14 +9,17 @@ import {
 	executiveCommand,
 	writeFile,
 	updatePackageJson,
+	executivePreCommand,
 } from './utils/utils.js'
 
 import fs from 'fs'
 import path from 'path'
 
+const __dirname = path.resolve()
+
 const env = {
 	'pnpm-lock': 'pnpm',
-	'yarn-lock': 'yarn',
+	'yarn.lock': 'yarn',
 	'package.lock': 'npm',
 }
 
@@ -50,7 +53,7 @@ export default function implement({ type, specList }) {
 		(key) => specList[key] !== 'no'
 	)
 
-	walkSync('./', function (filePath) {
+	walkSync(__dirname, function (filePath) {
 		const current = ['pnpm-lock', 'yarn.lock', 'package.lock'].find((item) =>
 			new RegExp(item).test(filePath)
 		)
@@ -63,7 +66,7 @@ export default function implement({ type, specList }) {
 				() => {
 					// husky的生成
 					if (isGit) {
-						executiveCommand(
+						executivePreCommand(
 							commandPreList.filter((c) => Boolean(c)).join('&&'),
 							env[current],
 							() => {

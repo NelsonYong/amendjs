@@ -4,7 +4,7 @@ import path from 'path'
 import ReadStream from './ReadStream.js'
 import WriteStream from './WriteStream.js'
 
-import { dirName } from '../index.js'
+import { dirName } from '../../../../index.js'
 
 const __dirname = path.resolve()
 
@@ -27,8 +27,8 @@ export function getPreUse(list, lintCommand, ...args) {
 export function generateCommand(use) {
 	let command = ''
 	use?.forEach((i, index) => {
-		if (index === 0) command += `npm i ${i} -D `
-		else command += `&& npm i ${i} -D`
+		if (index === 0) command += `== ${i} -D `
+		else command += `&& == ${i} -D`
 	})
 	return command
 }
@@ -36,14 +36,33 @@ export function generateCommand(use) {
 export function generatePreCommand(preUse) {
 	let command = ''
 	preUse?.forEach((i, index) => {
-		if (index === 0 || index < preUse.length - 1) command += ` npm  ${i} `
-		else command += ` && npm  ${i}  `
+		if (index === 0 || index < preUse.length - 1) command += ` =  ${i} `
+		else command += ` && =  ${i}  `
 	})
 	return command
 }
 
 export function executiveCommand(command, startCommand, callback) {
-	const processCommand = command.replace(/npm/g, startCommand)
+	const processCommand = command.replace(
+		/==/g,
+		startCommand === 'yarn' ? `yarn add` : `${startCommand} i`
+	)
+	exec(processCommand, (err, stdout, stderr) => {
+		if (err) {
+			console.log(err)
+			return
+		}
+		if (stdout) console.log(`stdout: ${stdout}`)
+		if (stderr) console.log(`stderr: ${stderr}`)
+		if (typeof callback === 'function') callback()
+	})
+}
+
+export function executivePreCommand(command, startCommand, callback) {
+	const processCommand = command.replace(
+		/=/g,
+		startCommand === 'npm' ? `npm run` : `${startCommand}`
+	)
 	exec(processCommand, (err, stdout, stderr) => {
 		if (err) {
 			console.log(err)
