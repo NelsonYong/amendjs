@@ -15,6 +15,7 @@ const eslint = {
 				'eslint-define-config',
 				'eslint-plugin-jest',
 				'eslint-plugin-prettier',
+				'prettier',
 				type !== undefined &&
 				type !== null &&
 				type !== 'other-framework' &&
