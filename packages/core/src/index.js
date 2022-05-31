@@ -6,6 +6,5 @@ const __dirname = path.resolve()
 implement({ type: projectType, specList })
 
 export function dirName() {
-	console.log(__dirname)
 	return __dirname
 }
