@@ -1,0 +1,40 @@
+{
+	"name": "specjs",
+	"version": "1.0.0",
+	"description": "",
+	"bin": {
+		"spec": "./packages/core/bin/spec.js"
+	},
+	"scripts": {
+		"lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
+		"lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" postcss-html --cache --cache-location node_modules/.cache/stylelint/",
+		"lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js"
+	},
+	"type": "module",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"events": "^3.3.0",
+		"inquirer": "^8.2.4"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^17.0.1",
+		"@commitlint/config-conventional": "^17.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.27.0",
+		"@typescript-eslint/parser": "^5.27.0",
+		"eslint": "^8.16.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-define-config": "^1.5.0",
+		"eslint-plugin-jest": "^26.4.6",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-vue": "^9.0.1",
+		"husky": "^8.0.1",
+		"lint-staged": "^12.4.3",
+		"stylelint": "^14.8.5",
+		"stylelint-config-prettier": "^9.0.3",
+		"stylelint-config-rational-order": "^0.1.2",
+		"stylelint-config-standard": "^25.0.0",
+		"stylelint-scss": "^4.2.0"
+	}
+}
