@@ -1,6 +1,4 @@
-# Specjs
-
-Specjs.
+# Amendjs
 
 ## ✨ Features
 
