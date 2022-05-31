@@ -4,6 +4,8 @@ import path from 'path'
 import ReadStream from './ReadStream.js'
 import WriteStream from './WriteStream.js'
 
+import { dirName } from '../index.js'
+
 const __dirname = path.resolve()
 
 export function getUse(list, lintCommand, ...args) {
@@ -55,7 +57,7 @@ export function executiveCommand(command, startCommand, callback) {
 
 export async function writeFile(input, output) {
 	fs.readFile(
-		path.join(__dirname, input),
+		path.join(dirName(), input),
 		{ encoding: 'utf-8' },
 		(err, data) => {
 			if (err) {
@@ -70,7 +72,7 @@ export async function writeFile(input, output) {
 }
 
 export async function writeFileStream(input, output) {
-	const rs = new ReadStream(path.join(__dirname, input), {
+	const rs = new ReadStream(path.join(dirName(), input), {
 		highWaterMark: 2, // 读取默认64k
 	})
 	const ws = new WriteStream(path.join(__dirname, output), {
