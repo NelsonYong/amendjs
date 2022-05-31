@@ -16,7 +16,6 @@ export default class ReadStream extends EventEmitter {
 		// open之后要开始read，open是异步的
 		this.open()
 
-		// 用户监听了data事件，才需要读取
 		// EventEmitter底层实现，绑定了监听事件，就会触发newListener
 		this.on('newListener', function (type) {
 			// type => open data end close error
