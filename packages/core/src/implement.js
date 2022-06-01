@@ -4,6 +4,7 @@ import createStylelint from './plugins/createStylelint.js'
 import createHusky from './plugins/createHusky.js'
 import createPreHusky from './plugins/createPreHusky.js'
 import createLintStaged from './plugins/createLintStaged.js'
+import createPrettier from './plugins/createPrettier.js'
 
 import {
 	executiveCommand,
@@ -46,12 +47,15 @@ export default function implement({ type, specList }) {
 		createStylelint({ type, specList }),
 		createHusky({ type, specList }),
 		createLintStaged({ type, specList }),
+		createPrettier({ type, specList }),
 	]
 	const commandPreList = [createPreHusky({ type, specList })]
 
 	const ruleKeys = Object.keys(specList)?.filter(
 		(key) => specList[key] !== 'no'
 	)
+	// 修改package.json
+	updatePackageJson(ruleKeys)
 
 	walkSync(__dirname, function (filePath) {
 		const current = ['pnpm-lock', 'yarn.lock', 'package.lock'].find((item) =>
@@ -81,9 +85,6 @@ export default function implement({ type, specList }) {
 										`./.husky/${item}`
 									)
 								})
-
-								// 修改package.json
-								updatePackageJson(ruleKeys)
 							}
 						)
 					}

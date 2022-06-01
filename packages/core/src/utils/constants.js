@@ -94,4 +94,18 @@ const lintstaged = {
 	],
 }
 
-export { eslint, commitlint, stylelint, husky, lintstaged }
+const prettier = {
+	name: 'prettier',
+	values: [
+		{
+			value: 'yes',
+			use: ['prettier'],
+		},
+		{
+			value: 'no',
+			use: [],
+		},
+	],
+}
+
+export { eslint, commitlint, stylelint, husky, lintstaged, prettier }

@@ -9,6 +9,12 @@ const questions = [
 	},
 	{
 		type: 'list',
+		name: 'prettier',
+		message: '导入prettier?',
+		choices: ['yes', , 'no'],
+	},
+	{
+		type: 'list',
 		name: 'stylelint',
 		message: '导入stylelint?',
 		choices: ['yes', 'no'],
