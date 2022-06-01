@@ -1,9 +1,4 @@
-import {
-	getUse,
-	generateCommand,
-	writeFileStream,
-	writeFile,
-} from '../utils/utils.js'
+import { getUse, generateCommand, writeFile } from '../utils/utils.js'
 
 import { prettier } from '../utils/constants.js'
 
