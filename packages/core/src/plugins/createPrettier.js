@@ -1,9 +1,9 @@
 import { getUse, generateCommand, writeFile } from '../utils/utils.js'
 
-import { prettier } from '../utils/constants.js'
+import { prettier } from '../config.js'
 
 const createPrettier = ({ specList }) => {
-	const prettierCommand = specList?.['prettier']
+	const prettierCommand = specList['prettier']
 	if (prettierCommand === 'yes') {
 		const use = getUse(prettier, prettierCommand)
 		const command = generateCommand(use)

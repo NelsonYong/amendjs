@@ -54,8 +54,7 @@ export default function implement({ type, specList }) {
 	const ruleKeys = Object.keys(specList)?.filter(
 		(key) => specList[key] !== 'no'
 	)
-	// 修改package.json
-	updatePackageJson(ruleKeys)
+
 
 	walkSync(__dirname, function (filePath) {
 		const current = ['pnpm-lock', 'yarn.lock', 'package.lock'].find((item) =>
@@ -85,9 +84,13 @@ export default function implement({ type, specList }) {
 										`./.husky/${item}`
 									)
 								})
+
+                	// 修改package.json
+	               updatePackageJson(ruleKeys)
 							}
 						)
 					}
+          
 				}
 			)
 		}

@@ -1,9 +1,9 @@
 import { getUse, generateCommand, writeFileStream } from '../utils/utils.js'
 
-import { stylelint } from '../utils/constants.js'
+import { stylelint } from '../config.js'
 
 const createStylelint = ({ specList }) => {
-	const stylelintCommand = specList?.['stylelint']
+	const stylelintCommand = specList['stylelint']
 	const fileName = stylelintCommand === 'yes' ? 'stylelint.config.js' : null
 	if (fileName) {
 		const use = getUse(stylelint, stylelintCommand)

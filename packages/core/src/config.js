@@ -109,3 +109,18 @@ const prettier = {
 }
 
 export { eslint, commitlint, stylelint, husky, lintstaged, prettier }
+
+export const questions = [
+	eslint,
+	commitlint,
+	stylelint,
+	husky,
+	lintstaged,
+	prettier,
+].map((item) => ({
+	type: 'list',
+	name: item.name,
+	message: `导入${item.name}?`,
+	choices:
+		item.values.length !== 0 ? item.values.map((item) => item.value) : [],
+}))

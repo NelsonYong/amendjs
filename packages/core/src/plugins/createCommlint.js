@@ -1,9 +1,9 @@
 import { getUse, generateCommand, writeFileStream } from '../utils/utils.js'
 
-import { commitlint } from '../utils/constants.js'
+import { commitlint } from '../config.js'
 
 const createCommlint = ({ specList }) => {
-	const commitlintCommand = specList?.['commitlint']
+	const commitlintCommand = specList['commitlint']
 
 	const fileName = commitlintCommand === 'yes' ? 'commitlint.config.js' : null
 	if (fileName) {

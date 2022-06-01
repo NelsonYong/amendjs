@@ -1,4 +1,4 @@
-import { eslint } from '../utils/constants.js'
+import { eslint } from '../config.js'
 
 import {
 	getUse,
@@ -8,7 +8,7 @@ import {
 } from '../utils/utils.js'
 
 const createEslint = ({ type, specList }) => {
-	const eslintCommand = specList?.['eslint']
+	const eslintCommand = specList['eslint']
 
 	if (eslintCommand !== 'no') {
 		const use = getUse(eslint, eslintCommand, type)
