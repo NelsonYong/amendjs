@@ -1,21 +1,18 @@
 {
-  "name": "amendjs",
-  "version": "1.7.0",
-  "description": "",
-  "bin": {
-    "amend": "./packages/core/bin/spec.js"
-  },
-  "scripts": {
-  },
-  "type": "module",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "events": "^3.3.0",
-    "inquirer": "^8.2.4"
-  },
-  "devDependencies": {
-  
-  }
+	"name": "amendjs",
+	"version": "1.8.0",
+	"description": "",
+	"bin": {
+		"amend": "./packages/core/bin/spec.js"
+	},
+	"scripts": {},
+	"type": "module",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"events": "^3.3.0",
+		"inquirer": "^8.2.4"
+	},
+	"devDependencies": {}
 }
