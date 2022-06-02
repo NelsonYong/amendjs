@@ -14,5 +14,7 @@
 		"events": "^3.3.0",
 		"inquirer": "^8.2.4"
 	},
-	"devDependencies": {}
+	"devDependencies": {},
+	"repository": "https://github.com/NelsonYong/amendjs",
+	"homepage": "https://github.com/NelsonYong/amendjs"
 }

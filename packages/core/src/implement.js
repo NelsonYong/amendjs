@@ -55,7 +55,6 @@ export default function implement({ type, specList }) {
 		(key) => specList[key] !== 'no'
 	)
 
-
 	walkSync(__dirname, function (filePath) {
 		const current = ['pnpm-lock', 'yarn.lock', 'package.lock'].find((item) =>
 			new RegExp(item).test(filePath)
@@ -85,12 +84,13 @@ export default function implement({ type, specList }) {
 									)
 								})
 
-                	// 修改package.json
-	               updatePackageJson(ruleKeys)
+								// 修改package.json
+								updatePackageJson(ruleKeys)
 							}
 						)
+					} else {
+						console.warn(`husky warn You ll need the git repository`)
 					}
-          
 				}
 			)
 		}
