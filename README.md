@@ -2,7 +2,7 @@
 
 Amendjs.
 
-## Introduce
+## 💫 Introduce
 
 In projects, we often need to set various development specifications, such as eslint, stylint, commitlint, etc. amendjs has built them in, and we can easily introduce these specifications into our own projects, eliminating tedious steps
 
